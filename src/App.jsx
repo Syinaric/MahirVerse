@@ -5,13 +5,15 @@ import FloatingIcosahedron from './FloatingIcosahedron'
 import MahirVerseTitle from './MahirVerseTitle'
 import CustomCursor from './CustomCursor'
 import PlaceholderPage from './PlaceholderPage'
+import ProjectsPage from './ProjectsPage'
+import ExperiencePage from './ExperiencePage'
 
 const RADIUS = 3.2
 
 const GEMS = [
   { color: '#4fc3f7', angle: 0,                 label: 'Projects',   path: '/projects'   },
   { color: '#ce93d8', angle: Math.PI / 2,        label: 'Experience', path: '/experience' },
-  { color: '#69f0ae', angle: Math.PI,            label: 'Blog',       path: '/blog'       },
+  { color: '#69f0ae', angle: Math.PI,            label: 'Resume',     path: '/resume',     href: 'https://drive.google.com/file/d/11ha4q7IouBomj3Xe9BRaQOeHW4jmwEzd/view' },
   { color: '#ffb74d', angle: (3 * Math.PI) / 2, label: 'Connect',    path: '/connect'    },
 ]
 
@@ -49,6 +51,7 @@ function Scene() {
             color={gem.color}
             label={gem.label}
             path={gem.path}
+            href={gem.href}
           />
         ))}
 
@@ -72,8 +75,8 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Scene />} />
-      <Route path="/projects"   element={<PlaceholderPage title="Projects" />} />
-      <Route path="/experience" element={<PlaceholderPage title="Experience" />} />
+      <Route path="/projects"   element={<ProjectsPage />} />
+      <Route path="/experience" element={<ExperiencePage />} />
       <Route path="/blog"       element={<PlaceholderPage title="Blog" />} />
       <Route path="/connect"    element={<PlaceholderPage title="Connect" />} />
     </Routes>
